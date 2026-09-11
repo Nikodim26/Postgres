@@ -2,7 +2,7 @@ import psycopg2
 
 conn = psycopg2.connect(
     host='localhost',
-    database='analysis',
+    database='demo',
     user='postgres',
     password='Lroberon24',
     port=5432
@@ -15,10 +15,9 @@ cur = conn.cursor()
 #             order by order_date DESC
 #             limit 5
 #             ;""")
-cur.execute("""SELECT contact_name, LENGTH(contact_name) FROM customers
-                UNION
-                SELECT notes, LENGTH(notes) FROM employees
-                order by LENGTH 
+cur.execute("""SELECT * FROM bookings.flights
+                order by flight_id asc
+                limit 10
             ;""")
 
 a = cur.fetchall()

@@ -2,18 +2,18 @@ import csv
 
 import psycopg2
 
-with open('data/customers_data.csv', newline='', encoding='utf-8') as file:
+with open('../data/customers_data.csv', newline='', encoding='utf-8') as file:
     customers_data = [row for row in csv.reader(file) if 'customer_id' not in row]
 
-with open('data/employees_data.csv', newline='', encoding='utf-8') as file:
+with open('../data/employees_data.csv', newline='', encoding='utf-8') as file:
     employees_data = [row for row in csv.reader(file) if 'first_name' not in row]
 
-with open('data/orders_data.csv', newline='', encoding='utf-8') as file:
+with open('../data/orders_data.csv', newline='', encoding='utf-8') as file:
     orders_data = [row for row in csv.reader(file) if 'order_id' not in row]
 
 conn = psycopg2.connect(
     host='localhost',
-    database='analysis',
+    database='postgres',
     user='postgres',
     password='Lroberon24',
     port=5432
